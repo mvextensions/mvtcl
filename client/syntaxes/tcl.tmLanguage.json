@@ -1,0 +1,41 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "MVON# TCL",
+	"patterns": [
+		
+		{
+			"match": "(\"([^\"]|\"\")*\")|('([^']|'')*')|(\\\\([^\\\\]|\\\\\\\\)*\\\\)",
+			"name": "string.other.quoted-or-unquoted.tcl"
+		},
+		{
+			"match": "(^[0-9]+\\s)|(^[0-9]+:\\s)|(^[\\w]+:(?!=))|(^[\\w\\.\\w]+:(?!=))",
+			"name": "string.other.quoted-or-unquoted.tcl"
+		},
+		{
+			"include": "#keywords"
+		}
+	],
+	"repository": {
+		"keywords": {
+			"patterns": [
+				{
+					"name": "support.class",
+					"match": "(?i)\\b(?<!\\.)(WITH|AND|OR|NOT|IF|LIKE|BREAK-ON|BREAK.ON|TOTAL|BY-EXP|BY-EXP-DSND)(?!\\.)\\b"
+				},
+				{
+					"name": "keyword.control.tcl",
+					"match": "(?i)\\b(?<!\\.)(COMPILE|DEBUG|BASIC|RUN|CATALOG|DECATALOG|DELETE.CATALOG|LISTFILES|TO|PORT.STATUS|ECLTYPE|MESSAGE|LISTUSER|ESEARCH|BREAK.KEY.ON|BREAK.KEY.OFF|VERSION|P|ECHO.ON|ECHO.OFF|SP.STATUS|OFF|LOGOUT|QUIT|BYE|LISTPTR|WHERE|LIST.ITEM|COMPILE.DICT|AUTOLOGOUT|SET.DEBUGGER|UPDATE.SQLSERVER|SHOW.CONFIG|SHOW.LICENSE|DATE.FORMAT|CLEARDATA|CLEAR.CACHE|LIST.CACHE|CACHE|STATS|UNLOCK|LOCK|LIST.LOCKS|CLEAR.LOCKS|CLEARCOMMON|SET.FILE|DELETE|LISTF|SEARCH|CS|CLR|DISPLAY|SLEEP|COUNT|DATE|TIME|CT|SEARCH|CD|COMO|CONVERT.UTF8|COPY|DEPLOY.SQLSERVER|DIVERT.OUT|GET.LIST|EDIT.LIST|DELETE.LIST|LIST.READU|LISTU|LO|LOGOFF|LOGTO|PHANTOM|RESET|SAVE.LIST|SETPTR|TERM|WHO|MERGE.LIST|ADD.ACCOUNT|DROP.ACCOUNT|FORM.LIST|SUM|NSELECT|CONVERT.FILE|CREATE.ACCOUNT|DELETE.ACCOUNT|DELETE.VIEW|CREATE.VIEW|CREATE.MVVIEW|CREATE.SVVIEW|SET.SQLDATABASE|CLEAR.SQLDATABASE|CLEAR.FILE|CLEARSELECT|CREATE.FIELD|CREATE.FILE|CREATE.INDEX|DELETE.FIELD|DELETE.FILE|DELETE.INDEX|CREATE.INDEX.MAP|LIST|LIST.ACCOUNTS|LINKED.ACCOUNTS|LIST.INDEX|MOVE.FILE|QSELECT|SELECT|SORT|SSELECT)(?!\\.)\\b"
+				},
+				{
+					"name": "constant.language",
+					"match": "(?i)(\\s)(EQ|NE|GT|LT|GE|LE)(\\s)"
+				},
+				{
+					"name": "constant.language",
+					"match": "(\\+|\\-|\\*|\\\\|=|:|#)"
+				}
+			]
+		}
+	},
+	"scopeName": "source.tcl"
+}
